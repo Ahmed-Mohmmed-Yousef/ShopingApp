@@ -70,22 +70,32 @@
                                     <constraint firstAttribute="height" constant="1" id="9vt-9v-42D"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.94999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="eFh-ow-fgR">
-                                <rect key="frame" x="4" y="163.5" width="181" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.94999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="eFh-ow-fgR">
+                                <rect key="frame" x="4" y="209" width="181" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bLj-CT-wPA">
-                                <rect key="frame" x="66" y="0.0" width="123" height="30"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dsp-ab-000">
+                                <rect key="frame" x="75.5" y="0.0" width="113.5" height="30"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="bLj-CT-wPA">
+                                        <rect key="frame" x="2" y="2" width="109.5" height="26"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" name="AccentColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="Mwi-oy-NDy"/>
+                                    <constraint firstItem="bLj-CT-wPA" firstAttribute="top" secondItem="Dsp-ab-000" secondAttribute="top" constant="2" id="3Xa-Rq-lSh"/>
+                                    <constraint firstAttribute="bottom" secondItem="bLj-CT-wPA" secondAttribute="bottom" constant="2" id="Hk7-VG-7SW"/>
+                                    <constraint firstAttribute="trailing" secondItem="bLj-CT-wPA" secondAttribute="trailing" constant="2" id="lbO-LO-9vB"/>
+                                    <constraint firstAttribute="height" constant="30" id="wmI-8p-7qP"/>
+                                    <constraint firstItem="bLj-CT-wPA" firstAttribute="leading" secondItem="Dsp-ab-000" secondAttribute="leading" constant="2" id="xsa-7h-aee"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="JN4-Hp-PiY">
                                 <rect key="frame" x="4" y="238.5" width="181" height="37.5"/>
                                 <subviews>
@@ -118,21 +128,21 @@
                             <constraint firstItem="lmO-nf-gnh" firstAttribute="leading" secondItem="sfG-bh-kce" secondAttribute="leading" id="8HH-vC-1eu"/>
                             <constraint firstItem="JN4-Hp-PiY" firstAttribute="leading" secondItem="sfG-bh-kce" secondAttribute="leading" constant="4" id="8VZ-gZ-ovK"/>
                             <constraint firstItem="bg2-fa-mqj" firstAttribute="top" secondItem="JN4-Hp-PiY" secondAttribute="bottom" constant="4" id="C0Z-rK-8Yd"/>
+                            <constraint firstItem="Dsp-ab-000" firstAttribute="width" secondItem="lmO-nf-gnh" secondAttribute="width" multiplier="0.6" id="Cgn-dH-ggp"/>
                             <constraint firstItem="bg2-fa-mqj" firstAttribute="centerX" secondItem="sfG-bh-kce" secondAttribute="centerX" id="DPR-5x-khm"/>
-                            <constraint firstItem="eFh-ow-fgR" firstAttribute="top" secondItem="lmO-nf-gnh" secondAttribute="bottom" constant="4" id="DoM-xI-kPT"/>
+                            <constraint firstItem="eFh-ow-fgR" firstAttribute="top" relation="greaterThanOrEqual" secondItem="lmO-nf-gnh" secondAttribute="bottom" constant="4" id="DoM-xI-kPT"/>
                             <constraint firstItem="eFh-ow-fgR" firstAttribute="leading" secondItem="sfG-bh-kce" secondAttribute="leading" constant="4" id="Ikx-2Z-XzC"/>
                             <constraint firstItem="lmO-nf-gnh" firstAttribute="top" secondItem="sfG-bh-kce" secondAttribute="top" id="JYU-qY-4Th"/>
                             <constraint firstAttribute="bottom" secondItem="bg2-fa-mqj" secondAttribute="bottom" constant="4" id="OH0-7z-7Gf"/>
                             <constraint firstAttribute="trailing" secondItem="eFh-ow-fgR" secondAttribute="trailing" constant="4" id="T13-oK-Jnq"/>
-                            <constraint firstAttribute="trailing" secondItem="bLj-CT-wPA" secondAttribute="trailing" id="WKL-yk-l9a"/>
+                            <constraint firstItem="Dsp-ab-000" firstAttribute="top" secondItem="sfG-bh-kce" secondAttribute="top" id="UML-tC-XCn"/>
                             <constraint firstItem="lmO-nf-gnh" firstAttribute="height" secondItem="sfG-bh-kce" secondAttribute="height" multiplier="0.5" id="b28-Rh-gPL"/>
-                            <constraint firstItem="bLj-CT-wPA" firstAttribute="width" secondItem="sfG-bh-kce" secondAttribute="width" multiplier="0.65" id="brZ-rS-B44"/>
                             <constraint firstAttribute="trailing" secondItem="lmO-nf-gnh" secondAttribute="trailing" id="dU1-op-jU0"/>
                             <constraint firstAttribute="trailing" secondItem="JN4-Hp-PiY" secondAttribute="trailing" constant="4" id="eUm-gu-XRz"/>
                             <constraint firstItem="JN4-Hp-PiY" firstAttribute="top" secondItem="ikV-Iw-kSS" secondAttribute="bottom" constant="4" id="ead-H4-UTd"/>
                             <constraint firstItem="ikV-Iw-kSS" firstAttribute="leading" secondItem="sfG-bh-kce" secondAttribute="leading" constant="4" id="ixz-cg-rq0"/>
-                            <constraint firstItem="ikV-Iw-kSS" firstAttribute="top" relation="greaterThanOrEqual" secondItem="eFh-ow-fgR" secondAttribute="bottom" constant="4" id="xBh-au-CUP"/>
-                            <constraint firstItem="bLj-CT-wPA" firstAttribute="top" secondItem="sfG-bh-kce" secondAttribute="top" id="xQ4-Vz-KCG"/>
+                            <constraint firstAttribute="trailing" secondItem="Dsp-ab-000" secondAttribute="trailing" id="kdd-Cv-MnW"/>
+                            <constraint firstItem="ikV-Iw-kSS" firstAttribute="top" secondItem="eFh-ow-fgR" secondAttribute="bottom" constant="4" id="mva-vY-WEE"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">

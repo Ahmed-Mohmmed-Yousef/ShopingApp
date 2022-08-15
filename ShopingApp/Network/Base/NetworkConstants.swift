@@ -45,4 +45,8 @@ class ApiPath {
     class CartsApiConst {
         static let carts = "carts"
     }
+    
+    class CategoryApiConst {
+        static let categories = "categories"
+    }
 }

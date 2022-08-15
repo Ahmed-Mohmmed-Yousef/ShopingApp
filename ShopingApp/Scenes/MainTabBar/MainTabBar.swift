@@ -15,21 +15,33 @@ class MainTabBar: UITabBarController {
     }
     
     private func setupViewControllers() {
+        
+        
         let homeNavigationController = UINavigationController(rootViewController: HomeRouter.createModule())
         homeNavigationController.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house.fill"))
-        let categoryNavigationController = UINavigationController(rootViewController: UIViewController())
+        let categoryNavigationController = UINavigationController(rootViewController: CategoryRouter.createModule())
         categoryNavigationController.tabBarItem = UITabBarItem(title: "Category", image: UIImage(systemName: "square.grid.2x2"), selectedImage: UIImage(systemName: "square.grid.2x2"))
-        let favoriteNavigationController = UINavigationController(rootViewController: UIViewController())
-        favoriteNavigationController.tabBarItem = UITabBarItem(title: "Favorite", image: UIImage(systemName: "heart"), selectedImage: UIImage(systemName: "heart.fill"))
+        let cartNavigationController = UINavigationController(rootViewController: CartRouter.createModule())
+        cartNavigationController.tabBarItem = UITabBarItem(title: "Cart", image: UIImage(systemName: "cart"), selectedImage: UIImage(systemName: "cart.fill"))
         let settingsNavigationController = UINavigationController(rootViewController: UIViewController())
         settingsNavigationController.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "gearshape"), selectedImage: UIImage(systemName: "gearshape.fill"))
         
         self.setViewControllers([
             homeNavigationController,
             categoryNavigationController,
-            favoriteNavigationController,
+            cartNavigationController,
             settingsNavigationController
         ], animated: true)
+    }
+    
+    private func setupNavBar(navControllr: UINavigationController) {
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .black
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont(name: "Arial", size: 32)!]
+        navControllr.navigationBar.standardAppearance = appearance
+        navControllr.navigationBar.scrollEdgeAppearance = navigationController?.navigationBar.standardAppearance
+        navControllr.navigationBar.compactAppearance = appearance.copy()
     }
 
 }

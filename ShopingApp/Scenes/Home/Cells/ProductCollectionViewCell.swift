@@ -42,8 +42,8 @@ class ProductCollectionViewCell: UICollectionViewCell, ProductCollectionViewCell
         let url = URL(string: productViewModel.image)
         productIV.kf.setImage(with: url)
         descriptionLbl.text = productViewModel.name
-        priceLbl.text = "\(productViewModel.price.stringPrice) EGP"
-        oldPriceLbl.text = "\(productViewModel.oldPrice.stringPrice) EGP"
+        priceLbl.text = "\(productViewModel.price.stringPrice)"
+        oldPriceLbl.text = "\(productViewModel.oldPrice.stringPrice)"
         if productViewModel.oldPrice == 0.0 {
             oldPriceLbl.isHidden = true
         }
@@ -51,9 +51,11 @@ class ProductCollectionViewCell: UICollectionViewCell, ProductCollectionViewCell
         favBtn.tintColor = productViewModel.inFavorites ? tintColor : .lightGray
         cartBtn.tintColor = productViewModel.inCart ? tintColor : .lightGray
         
-        discountLbl.isHidden = true
+        discountLbl.superview?.isHidden = true
+        oldPriceLbl.isHidden = true
         if productViewModel.discount > 0 {
-            discountLbl.isHidden = false
+            discountLbl.superview?.isHidden = false
+            oldPriceLbl.isHidden = false
             discountLbl.text = " Discount \(productViewModel.discount) %  "
         }
         

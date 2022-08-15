@@ -10,15 +10,13 @@ import Foundation
 
 
 // MARK: View Output (Presenter -> View)
-protocol PresenterToViewHomeProtocol {
+protocol PresenterToViewHomeProtocol: ViewProtocol {
     
     func productsSuccessLoaded(bannerVMs: [BannerViewModel], productVMs: [ProductViewModel])
     func productFailuerLoading(message: String?)
     func updateProductCell(productVM: ProductViewModel)
     
-    func showIndicator()
-    func hideIndicator()
-    func fialuerAlert(message: String)
+
 }
 
 

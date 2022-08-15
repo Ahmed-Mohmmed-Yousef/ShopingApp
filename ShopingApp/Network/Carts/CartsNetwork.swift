@@ -11,7 +11,7 @@ enum CartsNetwork {
     case getCarts(userToken: String)
     case addOrDeleteCart(userToken: String, productId: Int)
     case deleteFromCart(userToken: String, productId: Int)
-    case updateCart(userToken: String, quantity: Int)
+    case updateCart(userToken: String, productId: Int, quantity: Int)
 }
 
 extension CartsNetwork: TargetType {
@@ -23,6 +23,8 @@ extension CartsNetwork: TargetType {
         switch self {
         case .deleteFromCart(_, let id):
             return ApiPath.CartsApiConst.carts + "/\(id)"
+        case .updateCart(_, let productId, _):
+            return ApiPath.CartsApiConst.carts + "/\(productId)"
         default:
             return ApiPath.CartsApiConst.carts
         }
@@ -50,7 +52,7 @@ extension CartsNetwork: TargetType {
             return .requestParametr(parameter: ["product_id": productId])
         case .deleteFromCart:
             return .requestPlain
-        case .updateCart(_, let quantity):
+        case .updateCart(_, _, let quantity):
             return .requestParametr(parameter: ["quantity": quantity])
         }
     }
@@ -65,7 +67,7 @@ extension CartsNetwork: TargetType {
             params["Authorization"] = userToken
         case .deleteFromCart(userToken: let userToken, _):
             params["Authorization"] = userToken
-        case .updateCart(let userToken, _):
+        case .updateCart(let userToken, _, _):
             params["Authorization"] = userToken
         }
         return params

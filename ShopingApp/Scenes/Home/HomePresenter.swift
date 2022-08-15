@@ -21,6 +21,7 @@ class HomePresenter: ViewToPresenterHomeProtocol {
     var numberOfProducts: Int { return products.count }
     
     func viewDidLoad() {
+        if !products.isEmpty && !banners.isEmpty { return }
         view?.showIndicator()
         interactor?.getHomeData(userToken: userToken)
     }

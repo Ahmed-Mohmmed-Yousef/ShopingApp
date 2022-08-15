@@ -15,7 +15,8 @@ class ViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         view.backgroundColor = .blue
-        go()
+        view.layer.cornerRadius = 5
+        view.layer.masksToBounds = false
     }
     
     

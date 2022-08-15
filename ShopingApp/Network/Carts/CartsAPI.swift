@@ -11,6 +11,9 @@ protocol CartsAPIProtocol {
     func getCarts(userToken: String, completion: @escaping(Result<GetCartsResponse, APIError>) -> Void)
     func addOrDeleteWithCarts(userToken: String, productId: Int, completion: @escaping(Result<AddOrDeleteWithCartsResponse, APIError>) -> Void)
     func deleteFromCarts(userToken: String, productId: Int, completion: @escaping(Result<DeleteFromCartsResponse, APIError>) -> Void)
+    
+    func updateCartItem(userToken: String, productId: Int, value: Int, completion: @escaping(Result<UpdateCardItemResponse, APIError>) -> Void)
+    
 }
 
 class CartsAPI: BaseAPI<CartsNetwork>, CartsAPIProtocol {
@@ -66,6 +69,23 @@ class CartsAPI: BaseAPI<CartsNetwork>, CartsAPIProtocol {
                 }
             case .failure(let error):
                 completion(.failure(error))
+            }
+        }
+    }
+    
+    func updateCartItem(userToken: String, productId: Int, value: Int, completion: @escaping (Result<UpdateCardItemResponse, APIError>) -> Void) {
+        self.fetchData(target: .updateCart(userToken: userToken, productId: productId, quantity: value)) { result in
+            switch result {
+            case .success(let data):
+                do {
+                    let updateCardItemResponse = try JSONDecoder().decode(UpdateCardItemResponse.self, from: data)
+                    completion(.success(updateCardItemResponse))
+                } catch let error {
+                    completion(.failure(.jSONDecodingFailure))
+                    print(error.localizedDescription)
+                }
+            case .failure(let error):
+                completion(.failure(.requestFailure(error: error)))
             }
         }
     }

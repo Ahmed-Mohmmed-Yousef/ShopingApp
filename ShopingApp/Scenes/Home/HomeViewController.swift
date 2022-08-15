@@ -25,10 +25,13 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         collectioView.register(UINib(nibName: ProductCollectionViewCell.id, bundle: .main), forCellWithReuseIdentifier: ProductCollectionViewCell.id)
         collectioView.register(UINib(nibName: BannerCollectionViewCell.id, bundle: .main), forCellWithReuseIdentifier: BannerCollectionViewCell.id)
-//        collectioView.dataSource = self
         collectioView.delegate = self
         collectioView.collectionViewLayout = creatCompositionalLayout()
         configureDataSource()
+        setupNavBar(title: "SHOPING")
+        let barBtn = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .plain, target: self, action: nil)
+        barBtn.tintColor = .white
+        navigationItem.rightBarButtonItem = barBtn
     }
 
     override func viewWillAppear(_ animated: Bool) {
