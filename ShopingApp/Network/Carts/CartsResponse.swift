@@ -61,8 +61,8 @@ struct CartItemViewModel: ViewModelProtocol {
     let id, quantity: Int
     private let price, oldPrice: Int
     let name, image: String
-    var priceString: String { Double(price).stringPrice + " EGP"}
-    var oldPriceString: String? { return oldPrice == price ? nil : Double(oldPrice).stringPrice + " EGP"}
+    var priceString: String { Double(price).stringPrice }
+    var oldPriceString: String? { return oldPrice == price ? nil : Double(oldPrice).stringPrice }
     
     init(cartItem: CartItem) {
         self.id = cartItem.id

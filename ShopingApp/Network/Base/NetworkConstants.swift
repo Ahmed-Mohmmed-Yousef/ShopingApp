@@ -49,4 +49,10 @@ class ApiPath {
     class CategoryApiConst {
         static let categories = "categories"
     }
+    
+    class UserApiConst {
+        static let login = "login"
+        static let register = "register"
+        static let profile = "profile"
+    }
 }

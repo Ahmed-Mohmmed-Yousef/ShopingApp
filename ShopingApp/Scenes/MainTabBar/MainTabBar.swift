@@ -23,14 +23,14 @@ class MainTabBar: UITabBarController {
         categoryNavigationController.tabBarItem = UITabBarItem(title: "Category", image: UIImage(systemName: "square.grid.2x2"), selectedImage: UIImage(systemName: "square.grid.2x2"))
         let cartNavigationController = UINavigationController(rootViewController: CartRouter.createModule())
         cartNavigationController.tabBarItem = UITabBarItem(title: "Cart", image: UIImage(systemName: "cart"), selectedImage: UIImage(systemName: "cart.fill"))
-        let settingsNavigationController = UINavigationController(rootViewController: UIViewController())
-        settingsNavigationController.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "gearshape"), selectedImage: UIImage(systemName: "gearshape.fill"))
+        let moreNavigationController = UINavigationController(rootViewController: MoreRouter.createModule())
+        moreNavigationController.tabBarItem = UITabBarItem(title: "More", image: UIImage(systemName: "ellipsis.circle"), selectedImage: UIImage(systemName: "ellipsis.circle.fill"))
         
         self.setViewControllers([
-            homeNavigationController,
-            categoryNavigationController,
-            cartNavigationController,
-            settingsNavigationController
+//            homeNavigationController,
+//            categoryNavigationController,
+//            cartNavigationController,
+            moreNavigationController
         ], animated: true)
     }
     

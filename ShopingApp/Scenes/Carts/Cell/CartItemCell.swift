@@ -29,6 +29,12 @@ class CartItemCell: UITableViewCell, CellProtocol {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        quantityLbl.layer.masksToBounds = true
+        quantityLbl.setCornerRadius(value: 10)
+        
+        self.itemIV.setCornerRadius(value: 10)
+        itemIV.superview?.setShadow()
     }
     
     func configuerCell(vm: CartItemViewModel, indexPath: IndexPath) {

@@ -7,6 +7,7 @@
 
 import UIKit
 import ProgressHUD
+import SwiftUI
 
 
 extension UIViewController {
@@ -37,71 +38,60 @@ extension UIViewController {
         navigationItem.title = title
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20.0)]
         self.navigationController?.navigationBar.barTintColor = view.tintColor
+        self.navigationController?.navigationBar.tintColor = UIColor.white
     }
 }
 
-@IBDesignable extension UIView {
-    @IBInspectable var borderColor:UIColor? {
-        set {
-            layer.borderColor = newValue!.cgColor
-        }
-        get {
-            if let color = layer.borderColor {
-                return UIColor(cgColor:color)
-            }
-            else {
-                return nil
-            }
-        }
-    }
-    @IBInspectable var borderWidth:CGFloat {
-        set {
-            layer.borderWidth = newValue
-        }
-        get {
-            return layer.borderWidth
-        }
-    }
-    @IBInspectable var cornerRadius:CGFloat {
-        set {
-            layer.cornerRadius = newValue
-            clipsToBounds = newValue > 0
-        }
-        get {
-            return layer.cornerRadius
-        }
+extension UIView {
+    
+    @objc func setCircularCornerRadius() {
+        self.setCornerRadius(value: frame.width/2)
     }
     
-    @IBInspectable var shadowRadius:CGFloat {
-        set {
-            layer.shadowRadius = newValue
-        }
-        get {
-            return layer.shadowRadius
-        }
+    @objc func setCornerRadius(value: CGFloat) {
+        layer.cornerRadius = value
     }
     
-    @IBInspectable var shadowColor:UIColor? {
-        set {
-            layer.shadowColor = newValue!.cgColor
-        }
-        get {
-            if let color = layer.shadowColor {
-                return UIColor(cgColor:color)
-            }
-            else {
-                return nil
-            }
-        }
+    func setShadow() {
+        layer.shadowColor = UIColor.gray.cgColor
+        layer.shadowOffset = CGSize(width: 1.0, height: 1.0)
+        layer.shadowRadius = 3.0
+        layer.shadowOpacity = 0.3
     }
     
-    @IBInspectable var shadowOffset:CGSize {
-        set {
-            layer.shadowOffset = newValue
-        }
-        get {
-            return layer.shadowOffset
-        }
+    func setBorder(width: CGFloat, color: UIColor) {
+        layer.borderWidth = width
+        layer.borderColor = color.cgColor
+    }
+    
+}
+
+extension UIImageView {
+    
+    override func setCornerRadius(value: CGFloat) {
+        super.setCornerRadius(value: value)
+        clipsToBounds = true
+    }
+    
+    override func setCircularCornerRadius() {
+        super.setCircularCornerRadius()
+        clipsToBounds = true
+    }
+    
+    func base64EncodedString() -> String {
+        return image?.jpegData(compressionQuality: 0.5)?.base64EncodedString() ?? ""
+    }
+}
+
+extension UIButton {
+    override func setCornerRadius(value: CGFloat) {
+        super.setCornerRadius(value: value)
+        layer.masksToBounds = true
+    }
+    
+    override func setCircularCornerRadius() {
+        super.setCircularCornerRadius()
+        layer.masksToBounds = true
     }
 }
 
